@@ -123,8 +123,6 @@ int send_webhook(const char *msg, const char *description, int color, const char
 			 URL, HOST, strlen(payload), payload
 
 	);
-
-	printf("Request:\n%s\n", request);
 	if (SSL_write(ssl, request, (int)strlen(request)) <= 0)
 	{
 		perror("SSL_WRITE FAILED");
@@ -141,7 +139,6 @@ int send_webhook(const char *msg, const char *description, int color, const char
 	while ((bytes = SSL_read(ssl, buffer, sizeof(buffer) - 1)) > 0)
 	{
 		buffer[bytes] = '\0';
-		printf("%s", buffer);
 	}
 
 	SSL_shutdown(ssl);
