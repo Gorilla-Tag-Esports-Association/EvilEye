@@ -1,3 +1,4 @@
+![evileye](https://github.com/user-attachments/assets/ddc088f0-b32f-4846-90f6-beb4e6c73230)
 # EvilEye
 AntiCheat for GTEA
-![GTEA](https://github.com/user-attachments/assets/841cf2b2-6e00-44aa-9952-9a208105eb76)
+
