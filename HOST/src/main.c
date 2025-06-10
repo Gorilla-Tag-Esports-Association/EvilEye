@@ -9,8 +9,12 @@
 int main()
 {
     char steamPath[MAX_PATH];
-    if(find_dir(steamPath, sizeof(steamPath)))
+    if (find_dir(steamPath, sizeof(steamPath)))
     {
-        printf("Steam dir: %s\n", steamPath);
+        char Path[MAX_PATH];
+        strncpy(Path, steamPath, MAX_PATH - 1);
+        Path[MAX_PATH - 1] = '\0';
+        strncat(Path, "\\steamapps\\common\\Gorilla Tag\\Gorilla Tag_Data\\Managed", MAX_PATH - strlen(Path) - 1);
+        verify_int(Path);
     }
 }
