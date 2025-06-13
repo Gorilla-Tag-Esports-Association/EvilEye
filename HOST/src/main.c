@@ -15,6 +15,18 @@ int main()
         strncpy(Path, steamPath, MAX_PATH - 1);
         Path[MAX_PATH - 1] = '\0';
         strncat(Path, "\\steamapps\\common\\Gorilla Tag\\Gorilla Tag_Data\\Managed", MAX_PATH - strlen(Path) - 1);
-        verify_int(Path);
-    }
+        WIN32_FIND_DATA find_data;
+        char search_path[MAX_PATH];
+        snprintf(search_path, sizeof(search_path), "%s\\*.dll", Path);
+        HANDLE hFind = FindFirstFile(search_path, &find_data);
+        if(hFind != INVALID_HANDLE_VALUE){
+            do {
+                char full_path[MAX_PATH];
+                snprintf(full_path, sizeof(full_path), "%s\\%s", Path, find_data.cFileName);
+                hash_file(full_path);
+            } while(FindNextFile(hFind, &find_data));
+            FindClose(hFind);
+        }
+        hash_file(Path);
+    } 
 }
