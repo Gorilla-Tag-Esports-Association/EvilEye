@@ -1,0 +1,4 @@
+#ifndef FIND_HEADSET_CONNECTION_H
+#define FIND_HEADSET_CONNECTION_H
+
+#endif

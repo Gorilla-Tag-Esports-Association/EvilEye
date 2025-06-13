@@ -27,6 +27,6 @@ int main()
             } while(FindNextFile(hFind, &find_data));
             FindClose(hFind);
         }
-        hash_file(Path);
-    } 
+    }
+    report_invalid_hashes();
 }
