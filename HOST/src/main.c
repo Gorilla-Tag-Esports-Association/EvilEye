@@ -5,6 +5,7 @@
 #include "headers/file_hash.h"
 #include "headers/webhook_handler.h"
 #include "headers/file_enum.h"
+#include "headers/pipes.h"
 
 int main()
 {
@@ -29,4 +30,6 @@ int main()
         }
     }
     report_invalid_hashes();
+
+    
 }

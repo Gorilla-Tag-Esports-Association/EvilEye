@@ -8,6 +8,8 @@
 int Pipe(){
 
     const char *pipeName = PIPE_NAME;
+    char buffer[1024];
+    DWORD BytesRead;
 
     HANDLE hPipe = CreateNamedPipeA(
         pipeName,
@@ -24,6 +26,36 @@ int Pipe(){
         fprintf(stderr, "Failed to create named pipe: %ld\n", GetLastError());
         return 1;
     }
-    printf("client connection or something");
-
+    printf("client connection or something \n");
+    BOOL connected = ConnectNamedPipe(hPipe, NULL) ? TRUE : (GetLastError() == ERROR_PIPE_CONNECTED);
+    if(!connected) {
+        fprintf(stderr, "Failed to connect named pipe: %ld\n", GetLastError());
+        CloseHandle(hPipe);
+        return 1;
+    }
+    BOOL result = ReadFile(
+        hPipe,
+        buffer,
+        sizeof(buffer) - 1,
+        &BytesRead,
+        NULL
+    );
+    if(!result){
+        fprintf(stderr, "Failed to read from named pipe: %ld\n", GetLastError());
+        CloseHandle(hPipe);
+        return 1;
+    }
+    buffer[BytesRead] = '\0'; 
+    printf("Received from client: %s\n", buffer);
+    const char *response = "Hello twin";
+    DWORD BytesWritten;
+    result = WriteFile(
+        hPipe,
+        response,
+        (DWORD)strlen(response),
+        &BytesWritten,
+        NULL
+    );
+    CloseHandle(hPipe);
+    return 0;
 }
