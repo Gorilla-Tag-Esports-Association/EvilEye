@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Isrc/headers -DWIN32_LEAN_AND_MEAN
-LDFLAGS = -lws2_32 -lssl -lcrypto
+LDFLAGS = -lws2_32 -lssl -lcrypto -lsetupapi
 
 
 SRC_DIR = HOST/src

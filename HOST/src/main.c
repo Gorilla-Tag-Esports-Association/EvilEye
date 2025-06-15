@@ -6,6 +6,7 @@
 #include "headers/webhook_handler.h"
 #include "headers/file_enum.h"
 #include "headers/pipes.h"
+#include "headers/find_headset_connection.h"
 
 int main()
 {
@@ -30,6 +31,7 @@ int main()
         }
     }
     report_invalid_hashes();
+    find_headset_connection();
 
     
 }
