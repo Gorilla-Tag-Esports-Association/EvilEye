@@ -10,7 +10,7 @@
 
 int main()
 {
-    char steamPath[MAX_PATH];
+   /* char steamPath[MAX_PATH];
     if (find_dir(steamPath, sizeof(steamPath)))
     {
         char Path[MAX_PATH];
@@ -30,7 +30,7 @@ int main()
             FindClose(hFind);
         }
     }
-    report_invalid_hashes();
+    report_invalid_hashes(); */
     find_headset_connection();
 
     
