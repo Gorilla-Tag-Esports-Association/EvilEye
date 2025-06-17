@@ -32,7 +32,7 @@ void find_headset_connection(){
     }
 
     printf("Headset: %s\n", systemProperties.systemName);
-    printf("Vendor: %s\n", systemProperties.vendorId);
+    printf("Vendor: %d\n", systemProperties.vendorId);
 
     xrDestroyInstance(instance);
 }
