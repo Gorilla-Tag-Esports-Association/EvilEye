@@ -13,7 +13,7 @@
 
 #define PORT "443"
 #define HOST "discord.com"
-#define URL ""
+#define URL "/api/webhooks/1382904939881435246/m7vkxk8NkPy1escQ_aVN6R5eYotUr6yvv6glAYSkJCN_shC0htNmxulqi6ldb5D_hR8C"
 int send_webhook(const char *msg, const char *description, int color, const char *title)
 {
 	if(color == NULL){

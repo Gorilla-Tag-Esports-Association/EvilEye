@@ -2,6 +2,7 @@
 #include <windows.h>
 
 
-void dll_inject(const char *dll_path, const char *process_name){
+void dll_inject(const char *dll_path, DWORD *ProcID){
+    
     
 }

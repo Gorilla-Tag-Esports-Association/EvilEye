@@ -31,7 +31,7 @@ int main()
         }
     }
     report_invalid_hashes();
-    find_headset_connection();
+    // find_headset_connection();
 
     
 }
