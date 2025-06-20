@@ -6,14 +6,13 @@
 #include <ws2tcpip.h>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
+#include "headers/secrets.h"
 
 #pragma comment(lib, "ws2_32.lib")
 #pragma comment(lib, "libssl.lib")
 #pragma comment(lib, "libcrypto.lib")
 
-#define PORT "443"
-#define HOST "discord.com"
-#define URL ""
+
 int send_webhook(const char *msg, const char *description, int color, const char *title)
 {
 	if(color == NULL){

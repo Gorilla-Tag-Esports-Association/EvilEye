@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <windows.h>
 #include "headers/pipes.h"
+#include "headers/secrets.h"
 
-#define PIPE_NAME "\\\\.\\pipe\\"
+
 
 int Pipe(){
 
