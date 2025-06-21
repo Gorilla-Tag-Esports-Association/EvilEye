@@ -5,6 +5,6 @@
 typedef BOOL(WINAPI* DllMainFunc)(HINSTANCE, DWORD, LPVOID);
 BYTE* ReadDLL(const char* DLL_PATH, DWORD* outSize);
 DWORD find_procid();
-void dll_inject(const char *DLL_PATH);
+BOOL dll_inject(const char *DLL_PATH);
 
 #endif
