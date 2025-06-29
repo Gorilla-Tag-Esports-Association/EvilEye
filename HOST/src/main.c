@@ -11,7 +11,7 @@
 #include "headers/secrets.h"
 int main()
 {
-    /* char steamPath[MAX_PATH];
+    char steamPath[MAX_PATH];
     if (find_dir(steamPath, sizeof(steamPath)))
     {
         char Path[MAX_PATH];
@@ -32,8 +32,8 @@ int main()
         }
     }
     report_invalid_hashes();
-    find_headset_connection(); */
-    dll_inject("main.dll");
+    find_headset_connection();
+    //dll_inject("main.dll");
     return 0;
     
 }
