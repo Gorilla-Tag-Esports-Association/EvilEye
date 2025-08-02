@@ -2,9 +2,18 @@
 #define DLL_INJECTION_H
 #include <windows.h>
 
-typedef BOOL(WINAPI* DllMainFunc)(HINSTANCE, DWORD, LPVOID);
-BYTE* ReadDLL(const char* DLL_PATH, DWORD* outSize);
-DWORD find_procid();
-BOOL dll_inject(const char *DLL_PATH);
+typedef struct _INJECT_DATA
+{
+    LPVOID pLoadLibraryA;
+    LPVOID pGetProcAddress;
+    LPVOID pDllMain;
+    DWORD  dwDllReason;
+    DWORD  dwBaseAddress;
+    char   szDllPath[MAX_PATH];
+} INJECT_DATA, *PINJECT_DATA;
+
+DWORD WINAPI Shellcode(INJECT_DATA* pInjectData);
+DWORD GetProcessIdByName(const char* szProcessName);
+BOOL ManualMap(DWORD dwProcessId, const char* szDllPath);
 
 #endif

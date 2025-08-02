@@ -11,7 +11,7 @@
 #include "headers/secrets.h"
 int main()
 {
-    char steamPath[MAX_PATH];
+    /* char steamPath[MAX_PATH];
     if (find_dir(steamPath, sizeof(steamPath)))
     {
         char Path[MAX_PATH];
@@ -32,8 +32,24 @@ int main()
         }
     }
     report_invalid_hashes();
-    find_headset_connection();
-    //dll_inject("main.dll");
+    find_headset_connection(); */
+    
+    const char* ProcessName = "GorillaTag.exe";
+    DWORD dwProcessId = GetProcessIdByName(ProcessName);
+    const char* DllPath = "main.dll";
+    if (dwProcessId == 0)
+    {
+        printf("Error: Process '%s' not found.\n", ProcessName);
+        return 1;
+    }
+    printf("Found process '%s' with ID: %lu\n", ProcessName, dwProcessId);
+    if (!ManualMap(dwProcessId, DllPath))
+    {
+        printf("Error: Manual mapping failed.\n");
+        return 1;
+    }
+    printf("Manual mapping successful.\n");
+
     return 0;
     
 }
